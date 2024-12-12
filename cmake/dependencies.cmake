@@ -1,0 +1,10 @@
+find_package(raylib REQUIRED)
+target_link_libraries(${PROJECT_NAME} PUBLIC raylib)
+if (APPLE)
+  target_link_libraries(${PROJECT_NAME} PRIVATE "-framework IOKit")
+  target_link_libraries(${PROJECT_NAME} PRIVATE "-framework Cocoa")
+  target_link_libraries(${PROJECT_NAME} PRIVATE "-framework OpenGL")
+endif()
+
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(${PROJECT_NAME} PUBLIC fmt::fmt-header-only)
